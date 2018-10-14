@@ -1,0 +1,176 @@
+*{
+   font-family: sans-serif;
+   font-weight: 200;
+}
+body {
+   display: flex;
+   justify-content: center;
+   margin: 0;
+   padding: 0;
+   background: rgb(248, 255, 249);
+}
+#reddit {    
+   width: 700px;  
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center; 
+}
+#reddit .new {
+   margin-bottom: 15px;
+   width: 700px;   
+}
+#reddit .cards {
+   border: 1px solid gray;
+   padding: 10px;
+   transition-duration: 0.3s;
+   background: rgb(236, 250, 250);
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   box-shadow: 2px 0 20px rgb(177, 186, 218);
+}
+
+.cards:before {
+   position: absolute;
+   content: "";
+   border-bottom: 4px solid red;
+   left: 50%;
+   width: 0%;
+   transition: 0.5s;
+   bottom: -2px;
+}
+
+.cards:hover:before {
+   width: 100%;
+   left: 0%;
+}
+#reddit .new .video {
+   width: 602px;
+   height: 350px;
+   border: none; 
+   margin-top: 10px;   
+}
+#reddit .new .title {
+   margin-top: 5px;
+   margin-bottom: -5px;  
+}
+
+#reddit .new .img {   
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+#reddit .pageinated {
+   display: flex;
+   margin-top: 20px;   
+   animation-name: fol;
+   animation-duration: 1s;
+   
+}
+#reddit .pageinated .pageNumbers {
+   margin: 10px;
+   text-align: center;   
+}
+
+.cardsTrue {
+   animation-name: backwards ;
+   animation-duration: 1.5s;
+   
+}
+.cardsFalse {
+    animation-name: forwards;
+    animation-duration: 1.5s;
+}
+@keyframes forwards {
+   0% {
+      opacity: 1;       
+      transform: scale(1) translateX(0px);       
+   }25% {
+      opacity: 0;
+      transform: scale(0) translateX(-700px);
+   }50% {
+      opacity: 0;
+      transform: scale(0) translateX(700px);
+   }100% {
+      opacity: 1;      
+      transform: scale(1) translateX(0);      
+   }
+}
+@keyframes backwards {
+   0% {
+      opacity: 1;
+      transform: scale(1) translateX(0px);
+   }25% {
+      opacity: 0;
+      transform: scale(0) translateX(700px);
+   }50% {
+      opacity: 0;
+      transform: scale(0) translateX(-700px)
+   }100% {
+      opacity: 1;
+      transform: scale(1) translateX(0);
+   }
+}
+button {
+   width: 40px;
+   height: 40px;
+   border: none;
+   background: none;
+   outline: none;
+   margin-bottom: 20px;
+}
+.button1False {   
+   box-shadow: 4px 0 0 0 grey;
+   border-radius: 50%;   
+   animation-name: button1;
+   animation-duration: 1s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   animation-direction: reverse;
+}
+
+.button1True {
+   box-shadow: 4px 0 0 0 red;
+   border-radius: 50%;
+   color: red;   
+   animation-name: button1;
+   animation-duration: 1s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   animation-direction: reverse;
+}
+
+@keyframes button1 {
+   0% {
+      transform: rotate(180deg)
+   }
+   100% {
+      transform: rotate(530deg)
+   }
+}
+
+.button2False {     
+   box-shadow: 3px 0 0 0 grey;
+   border-radius: 50%;
+   animation-name: button2;
+   animation-duration: 1s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+}
+.button2True {
+   box-shadow: 3px 0 0 0 red;
+   border-radius: 50%;
+   color: red;
+   animation-name: button2;
+   animation-duration: 1s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   
+}
+@keyframes button2 {
+  100% {
+      transform: rotate(360deg)
+   }
+}
+

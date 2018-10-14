@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8" />
+   <title>Reddit News</title>
+   <script src=" https://unpkg.com/axios/dist/axios.min.js "> </script>
+   
+   <link rel="stylesheet" href="styleReddit.css"><link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="reddit" >   
+
+      <div class="pageinated"> 
+         <button v-on:click="prevPage"
+         v-bind:disabled="pageNumber === 0"
+         v-bind:class="{button1True: button == 'true',
+         button1False: button == 'false'}">+</button>
+         <p class="pageNumbers">Cтраница № {{pageNumber + 1}}</p>
+         <button v-on:click="nextPage"
+            v-bind:disabled="pageNumber >= pageCount-1"
+            v-bind:class="{button2True: button2 == 'true',
+                           button2False: button2 == 'false'}">
+         +</button>
+      </div>
+         <div class="new" v-for="news in pageinatedData">
+            
+            <div class="cards" v-bind:key='news.data.title'
+            v-bind:class="{cardsTrue: page == 'backwards',
+                           cardsFalse: page == 'forwards'}">
+               <h1 class="title">{{news.data.title}}</h1>         
+               <p class="selftext">{{news.data.selftext}}</p> 
+               
+               <div  class="url">
+                  <a v-bind:href="news.data.url">{{news.data.url}}</a> 
+               </div>         
+
+               <div v-if="!news.data.secure_media_embed.media_domain_url">
+                  <img class="img" v-bind:src="news.data.thumbnail" alt="">
+               </div> 
+
+               <div v-else>
+                  <iframe class="video" controls v-bind:src="news.data.secure_media_embed.media_domain_url"></iframe>
+               </div>          
+            </div>
+         </div>
+   </div>
+
+<script src="vue.js"></script>
+<script src="mainReddit.js"></script>
+   
+</body>
+</html>
